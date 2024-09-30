@@ -4,8 +4,8 @@ import { Suspense } from "react";
 export default function Store() {
   return (
     <main className="flex flex-col gap-4">
-      <div className="bg-black rounded-md">
-        <p className="text-center text-yellow-400 p-2">
+      <div className="">
+        <p className="text-left  p-2">
           Step into the realm of metal-inspired garden art with 'No Place Like
           Gnome.' Our showcase is a testament to the fusion of horticulture and
           heavy metal, where each gnome is a unique masterpiece handcrafted by

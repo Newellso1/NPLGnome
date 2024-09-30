@@ -13,7 +13,7 @@ export default function Menu({ openMenu, setOpenMenu }) {
 
   return (
     <div
-      className={`flex flex-col fixed inset-0 justify-between  h-full w-full bg-yellow-400 transition-all ${
+      className={`menu flex flex-col fixed inset-0 justify-between  h-full w-full bg-yellow-400 transition-all ${
         openMenu ? "translate-x-0" : "-translate-x-full"
       }`}
     >

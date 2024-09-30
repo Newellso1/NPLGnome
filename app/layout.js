@@ -5,6 +5,7 @@ import Footer from "@/Components/Footer";
 import Menu from "@/Components/Menu";
 
 import { Metal_Mania } from "next/font/google";
+import BasketButton from "@/Components/BasketButton";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         <Header />
         <div className="grow flex items-center p-4">{children}</div>
         <Footer />
+        <BasketButton />
       </body>
     </html>
   );

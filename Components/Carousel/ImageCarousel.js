@@ -6,7 +6,7 @@ export default function ImageCarousel() {
   const products = useProducts();
 
   return (
-    <div className="w-fit">
+    <div className="w-fit z-0">
       <Carousel loop="true">
         {products.map((product) => (
           <img
