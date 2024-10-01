@@ -1,11 +1,11 @@
 "use client";
 
 import { Metal_Mania } from "next/font/google";
-
 import { useProducts } from "@/public/ProductFetch";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
+import { useBasket } from "@/Components/CartContext";
 
 export const metalMania = Metal_Mania({
   subsets: ["latin"],
@@ -17,6 +17,7 @@ export default function ProductPage({ params }) {
   const products = useProducts();
   const productSlug = parseInt(params.slug);
   const productInfo = products.find((product) => product.id === productSlug);
+  const { addToBasket } = useBasket();
 
   if (!productInfo) {
     return <h2>Gnome is not here</h2>;
@@ -32,6 +33,11 @@ export default function ProductPage({ params }) {
     }
   };
 
+  const handleAddToBasket = () => {
+    addToBasket(productInfo, quantity);
+    setQuantity(0);
+  };
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between items-center">
@@ -43,20 +49,27 @@ export default function ProductPage({ params }) {
       <img src={productInfo.picture} alt="Gnome" />
       <p>{productInfo.description}</p>
       <div className="flex justify-between text-xl mt-4">
-        <button className="border-2 border-black hover:bg-black hover:text-yellow-400 p-1 px-6">
+        <button
+          onClick={handleAddToBasket}
+          disabled={quantity === 0}
+          className={`border-2 border-black ${
+            quantity > 0 ? "bg-black text-yellow-400" : ""
+          }  hover:bg-black hover:text-yellow-400 p-1 px-6`}
+        >
           Add to cart
         </button>
         <div className="flex gap-4 justify-center items-center">
           <FontAwesomeIcon
-            icon={faPlusCircle}
-            className="text-black"
-            onClick={handleIncreaseQuantity}
-          />
-          <span className="text-2xl">{quantity}</span>
-          <FontAwesomeIcon
             icon={faMinusCircle}
             className="text-black"
             onClick={handleDecreaseQuantity}
+          />
+
+          <span className="text-2xl">{quantity}</span>
+          <FontAwesomeIcon
+            icon={faPlusCircle}
+            className="text-black"
+            onClick={handleIncreaseQuantity}
           />
         </div>
       </div>

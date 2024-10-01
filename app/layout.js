@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/Components/Header";
 import Footer from "@/Components/Footer";
 import Menu from "@/Components/Menu";
-
+import { BasketProvider } from "@/Components/CartContext";
 import { Metal_Mania } from "next/font/google";
 import BasketButton from "@/Components/BasketButton";
 const inter = Inter({ subsets: ["latin"] });
@@ -17,10 +17,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
       <body className="flex flex-col min-h-full bg-yellow-400">
-        <Header />
-        <div className="grow flex items-center p-4">{children}</div>
-        <Footer />
-        <BasketButton />
+        <BasketProvider>
+          <Header />
+          <div className="grow flex items-center p-4">{children}</div>
+          <Footer />
+          <BasketButton />
+        </BasketProvider>
       </body>
     </html>
   );
