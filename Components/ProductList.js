@@ -9,8 +9,8 @@ export default function ProductList() {
   const products = useProducts();
 
   return (
-    <div className=" flex flex-col items-center gap-4 p-4 rounded-md max-h-screen h-5/6 overflow-scroll">
-      <ul className="flex flex-col items-starts w-full gap-2">
+    <div className=" flex flex-col items-center gap-4 p-4 rounded-md max-h-screen md:max-h-none h-5/6 overflow-scroll">
+      <ul className="no-scrollbar flex flex-col justify-center items-starts  w-full gap-2 md:gap-4 md:flex-row md:flex-wrap md:max-w-[100em]">
         {products.map((product) => (
           <li key={product.id}>
             <Product

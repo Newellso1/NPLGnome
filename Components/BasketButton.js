@@ -12,6 +12,10 @@ export default function BasketButton({}) {
     setBasketOpen(!basketOpen);
   };
 
+  const basketItems = basket.reduce((acc, item) => {
+    return acc + item.quantity;
+  }, 0);
+
   return (
     <>
       <div
@@ -24,7 +28,7 @@ export default function BasketButton({}) {
             basket.length > 0 ? "absolute" : "hidden"
           } -top-1 -right-1 size-5 rounded-full flex justify-center items-center text-sm`}
         >
-          {basket.length > 0 ? `${basket.length}` : ""}
+          {basket.length > 0 ? `${basketItems}` : ""}
         </span>
       </div>
       <BasketPage

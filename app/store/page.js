@@ -1,23 +1,18 @@
+"use client";
+
 import ProductList from "@/Components/ProductList";
 import { Suspense } from "react";
+import { metalMania } from "../products/[slug]/page";
 
 export default function Store() {
   return (
-    <main className="flex flex-col gap-4">
-      <div className="">
-        <p className="text-left  p-2">
-          Step into the realm of metal-inspired garden art with 'No Place Like
-          Gnome.' Our showcase is a testament to the fusion of horticulture and
-          heavy metal, where each gnome is a unique masterpiece handcrafted by
-          our skilled artisans. Explore the gallery below to witness the
-          extraordinary craftsmanship and attention to detail that defines our
-          bespoke gnomes. From iconic rock legends to whimsical characters,
-          these garden companions are designed to add a touch of rebellion and
-          individuality to your outdoor space. Embrace the extraordinary as you
-          scroll through our collection – because there truly is 'No Place Like
-          Gnome!'
-        </p>
+    <main className="flex flex-col gap-4 items-center w-full">
+      <div className="bg-black w-full text-yellow-400 flex flex-col justify-center items-center h-96">
+        <h2 className={`${metalMania.className} text-6xl text-center`}>
+          Shop All Gnomes
+        </h2>
       </div>
+
       <Suspense>
         <ProductList />
       </Suspense>

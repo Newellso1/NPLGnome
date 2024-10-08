@@ -39,38 +39,44 @@ export default function ProductPage({ params }) {
   };
 
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex justify-between items-center">
-        <h2 className={`${metalMania.className} text-4xl`}>
-          {productInfo.name}
-        </h2>
-        <h2 className="text-2xl">${productInfo.price}</h2>
-      </div>
-      <img src={productInfo.picture} alt="Gnome" />
-      <p>{productInfo.description}</p>
-      <div className="flex justify-between text-xl mt-4">
-        <button
-          onClick={handleAddToBasket}
-          disabled={quantity === 0}
-          className={`border-2 border-black ${
-            quantity > 0 ? "bg-black text-yellow-400" : ""
-          }  hover:bg-black hover:text-yellow-400 p-1 px-6`}
-        >
-          Add to cart
-        </button>
-        <div className="flex gap-4 justify-center items-center">
-          <FontAwesomeIcon
-            icon={faMinusCircle}
-            className="text-black"
-            onClick={handleDecreaseQuantity}
-          />
+    <div className="flex w-full justify-center items-center">
+      <div className="flex flex-col gap-2 md:max-w-[35em]">
+        <div className="flex justify-between items-center">
+          <h2 className={`${metalMania.className} text-4xl`}>
+            {productInfo.name}
+          </h2>
+          <h2 className="text-2xl">${productInfo.price}</h2>
+        </div>
+        <img
+          src={productInfo.picture}
+          alt="Gnome"
+          className="md:max-w-[40em]"
+        />
+        <p className="md:max-w-[40em]">{productInfo.description}</p>
+        <div className="flex justify-between text-xl mt-4">
+          <button
+            onClick={handleAddToBasket}
+            disabled={quantity === 0}
+            className={`border-2 border-black ${
+              quantity > 0 ? "bg-black text-yellow-400" : ""
+            }  hover:bg-black hover:text-yellow-400 p-1 px-6`}
+          >
+            Add to cart
+          </button>
+          <div className="flex gap-4 justify-center items-center">
+            <FontAwesomeIcon
+              icon={faMinusCircle}
+              className="text-black"
+              onClick={handleDecreaseQuantity}
+            />
 
-          <span className="text-2xl">{quantity}</span>
-          <FontAwesomeIcon
-            icon={faPlusCircle}
-            className="text-black"
-            onClick={handleIncreaseQuantity}
-          />
+            <span className="text-2xl pointer-events-none">{quantity}</span>
+            <FontAwesomeIcon
+              icon={faPlusCircle}
+              className="text-black"
+              onClick={handleIncreaseQuantity}
+            />
+          </div>
         </div>
       </div>
     </div>
