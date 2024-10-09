@@ -52,6 +52,7 @@ export default function ProductPage({ params }) {
           alt="Gnome"
           className="md:max-w-[40em]"
         />
+
         <p className="md:max-w-[40em]">{productInfo.description}</p>
         <div className="flex justify-between text-xl mt-4">
           <button
