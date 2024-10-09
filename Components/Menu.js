@@ -13,7 +13,7 @@ export default function Menu({ openMenu, setOpenMenu }) {
 
   return (
     <div
-      className={`menu flex flex-col fixed inset-0 justify-between  h-full w-full bg-yellow-400 transition-all ${
+      className={`menu flex flex-col fixed items-center inset-0 justify-between  h-full w-full bg-yellow-400 transition-all ${
         openMenu ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -28,7 +28,7 @@ export default function Menu({ openMenu, setOpenMenu }) {
         </ul>
       </div>
       <div className="">
-        <Image src={Mascot} alt="NPL Gnome Mascot" />
+        <Image src={Mascot} alt="NPL Gnome Mascot" className="md:max-w-96" />
       </div>
     </div>
   );
