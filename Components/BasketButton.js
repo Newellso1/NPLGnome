@@ -24,7 +24,7 @@ export default function BasketButton({}) {
       >
         <FontAwesomeIcon icon={faShoppingBasket} />
         <span
-          className={` bg-red-700 ${
+          className={`bg-red-700 ${
             basket.length > 0 ? "absolute" : "hidden"
           } -top-1 -right-1 size-5 rounded-full flex justify-center items-center text-sm`}
         >
