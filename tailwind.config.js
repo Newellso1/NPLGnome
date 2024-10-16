@@ -2,10 +2,6 @@ const { Metal_Mania } = require("next/font/google");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: [
-    "./pages/**/*.{js, ts, jsx, tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
